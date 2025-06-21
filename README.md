@@ -26,6 +26,9 @@ This is a content-based movie recommender system developed using Python and Mach
 
 ## Getting Started
 
+(Screenshots of working website are in screenshot folder) 
+
+
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/seyjall/Movie-recommender.git
