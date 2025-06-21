@@ -2,9 +2,21 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
+import os
 
+def download_similarity():
+    if not os.path.exists("similarity.pkl"):
+        print("Downloading similarity.pkl...")
+        url = "https://drive.google.com/uc?export=download&id=1bZdkWLdSptJDANlNw9Z9unb_5_Eum0OZ"
+        response = requests.get(url)
+        with open("similarity.pkl", "wb") as f:
+            f.write(response.content)
+        print("Download complete.")
 
-similarity = pickle.load(open('similarity.pkl' ,'rb' ))
+download_similarity()
+
+with open("similarity.pkl", "rb") as f:
+    similarity = pickle.load(f)
 
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}/images?api_key=fc1bb5b46712b8f459d907ab2083d2be"
